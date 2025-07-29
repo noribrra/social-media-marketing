@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خدمات التسويق الرقمي وقائمة QR</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+    body {
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+      position: relative;
+      padding-bottom: 80px;
+    }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px #00f5ff;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .intro, .qr-section, .stats {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .intro p, .qr-section p {
+      font-size: 1.2rem;
+      color: #ddd;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .feature {
+      flex: 1 1 300px;
+      background: #111;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.1);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .feature img {
+      width: 100px;
+      margin-bottom: 1rem;
+    }
+    .feature h3 {
+      color: #00f5ff;
+      margin-bottom: 0.5rem;
+    }
+    .feature p {
+      color: #ccc;
+    }
+    #growthChart {
+      width: 100% !important;
+      max-width: 800px;
+      height: 400px !important;
+      margin: 0 auto;
+    }
+    .qr-section img {
+      width: 150px;
+      margin: 1rem 0;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #111;
+      color: #aaa;
+    }
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #25d366;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 50px;
+      font-size: 16px;
+      box-shadow: 0 0 15px #25d366;
+      text-decoration: none;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+    .whatsapp-button:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>خدمات التسويق الرقمي وقائمة QR للمطاعم</h1>
+  </header>
+
+  <div class="container">
+    <div class="intro">
+      <p>أدير حساباتك على فيسبوك وإنستغرام بشكل احترافي، وأنشئ حملات إعلانية مخصصة، وأوفر لك تقارير تساعدك على تطوير أعمالك. كما أوفر لك قوائم QR حديثة للمطاعم بدلاً من القوائم الورقية التقليدية.</p>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+        <h3>إدارة حساب إنستغرام</h3>
+        <p>زيادة التفاعل والمحتوى الجذاب لتوسيع جمهورك.</p>
+      </div>
+      <div class="feature">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+        <h3>إعلانات فيسبوك</h3>
+        <p>تصميم وتنفيذ حملات فعالة للوصول لعملاء جدد.</p>
+      </div>
+      <div class="feature">
+        <img src="https://cdn-icons-png.flaticon.com/512/3523/3523063.png" alt="QR Menu">
+        <h3>قائمة QR للمطاعم</h3>
+        <p>قائمة رقمية أنيقة توفر نظافة وسهولة وصول للزوار.</p>
+      </div>
+    </div>
+
+    <div class="stats">
+      <h2>كيف ستساعدك خدماتنا</h2>
+      <canvas id="growthChart"></canvas>
+    </div>
+
+    <div class="qr-section">
+      <h2>امسح الكود للتواصل معنا</h2>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://your-service-link.com&size=150x150" alt="QR Code">
+      <p>تعرف أكثر على خدماتنا أو تواصل معنا مباشرة عبر الرابط.</p>
+    </div>
+  </div>
+
+  <a href="https://wa.me/9647517930649" class="whatsapp-button" target="_blank">
+    واتساب
+  </a>
+
+  <footer>
+    <p>&copy; 2025 خدمات التسويق الرقمي - جميع الحقوق محفوظة</p>
+  </footer>
+
+  <script>
+    const ctx = document.getElementById('growthChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['عدد المتابعين', 'نسبة التفاعل', 'زيارات الموقع'],
+        datasets: [{
+          label: 'نمو الحساب بعد 3 أشهر',
+          data: [5000, 3000, 1200],
+          backgroundColor: ['#ff6384', '#36a2eb', '#4bc0c0']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: { color: '#fff' }
+          }
+        },
+        scales: {
+          x: { ticks: { color: '#fff' } },
+          y: { ticks: { color: '#fff' } }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
